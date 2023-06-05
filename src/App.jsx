@@ -1,35 +1,33 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+  const  [todos, setTodos] = useState([
+    {
+      id: 1,
+      text: "Criando minha lista de tarefas - todo",
+      categoy: "Trabalho",
+      isComleted: false,
+    },
+    {
+      id: 2,
+      text: "Voltar para minhas caminhadas matinais",
+      categoy: "Pessoal",
+      isComleted: false,
+    },    
+  ])
+  
+  return <div className='app'>
+      <h1>Lista de Tarefas</h1>
+      <div className="todo-list">
+        {todos.map((todo) => (
+          <div key="1" className="todo">
+            <div key="2" className="content">
+              <p>{todo.text}</p>
+            </div>
+          </div>
+        ))}
       </div>
-      <h1>Vite + React  (Tiago Rico de Portugal)</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+  </div>;
 }
 
 export default App

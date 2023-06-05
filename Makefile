@@ -1,3 +1,5 @@
+dup:
+		docker-compose up -d --build --remove-orphans
 duu:
 		docker-compose up -d
 ddo:
