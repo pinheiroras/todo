@@ -31,3 +31,18 @@ p {
 input {
   box-sizing: border-box;
 }
+
+button {
+  background-color: #333974;
+  color: #fff;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  opacity: .8;
+  transition: .3s;
+}
+
+button:hover {
+  opacity: 1;
+}
