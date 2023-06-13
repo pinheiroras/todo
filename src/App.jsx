@@ -9,13 +9,13 @@ function App() {
     {
       id: 1,
       text: "Criando minha lista de tarefas - todo",
-      categoy: "Trabalho",
+      category: "Trabalho",
       isCompleted: false,
     },
     {
       id: 2,
       text: "Voltar para minhas caminhadas matinais",
-      categoy: "Pessoal",
+      category: "Pessoal",
       isCompleted: false,
     },    
   ])
@@ -31,6 +31,12 @@ function App() {
     setTodos(newTodos)
   }
 
+  const completedTodo = (id) => {
+    const newTodos = [...todos]
+    newTodos.map((todo) => todo.id === id ? todo.isCompleted = !todo.isCompleted : todo)
+    setTodos(newTodos)
+  }
+
   const removeTodo = (id) => {
     const newTodos = [...todos]
     const filteredTodos = newTodos.filter(todo => todo.id !== id ? todo : null)
@@ -40,7 +46,7 @@ function App() {
   return <div className='app'>
       <h1>Lista de Tarefas</h1>
       <div className="todo-list">
-        {todos.map((todo) => (<Todo key={todo.id} todo={todo} removeTodo={removeTodo}/>))}
+        {todos.map((todo) => (<Todo key={todo.id} todo={todo} removeTodo={removeTodo} completedTodo={completedTodo}/>))}
       </div>
       <TodoForm addTodo={addTodo}/>
   </div>;
